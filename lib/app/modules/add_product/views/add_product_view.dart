@@ -18,6 +18,15 @@ class AddProductView extends GetView<AddProductController> {
         child: Column(
           children: [
             TextField(
+              controller: controller.cFakultas,
+              autocorrect: false,
+              textInputAction: TextInputAction.done,
+              decoration: InputDecoration(labelText: "Fakultas"),
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            TextField(
               controller: controller.cNama,
               autocorrect: false,
               textInputAction: TextInputAction.done,
@@ -36,36 +45,20 @@ class AddProductView extends GetView<AddProductController> {
               height: 10,
             ),
             TextField(
-              controller: controller.cAlamat,
+              controller: controller.cProdi,
               textInputAction: TextInputAction.done,
-              decoration: InputDecoration(labelText: "alamat"),
+              decoration: InputDecoration(labelText: "Prodi"),
             ),
             SizedBox(
               height: 10,
-            ),
-            TextField(
-              controller: controller.cProgramStudi,
-              textInputAction: TextInputAction.done,
-              decoration: InputDecoration(labelText: "program studi"),
-            ),
-            SizedBox(
-              height: 10,
-            ),
-            TextField(
-              controller: controller.cJk,
-              textInputAction: TextInputAction.done,
-              decoration: InputDecoration(labelText: "jk"),
-            ),
-            SizedBox(
-              height: 30,
             ),
             ElevatedButton(
                 onPressed: () => controller.addProduct(
-                    controller.cNama.text,
-                    controller.cNpm.text,
-                    controller.cAlamat.text,
-                    controller.cProgramStudi.text,
-                    controller.cJk.text),
+                      controller.cFakultas.text,
+                      controller.cNama.text,
+                      controller.cNpm.text,
+                      controller.cProdi.text,
+                    ),
                 child: Text("Simpan"))
           ],
         ),

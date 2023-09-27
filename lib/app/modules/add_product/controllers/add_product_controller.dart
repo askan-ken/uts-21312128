@@ -3,35 +3,33 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class AddProductController extends GetxController {
+  late TextEditingController cFakultas;
   late TextEditingController cNama;
   late TextEditingController cNpm;
-  late TextEditingController cAlamat;
-  late TextEditingController cProgramStudi;
-  late TextEditingController cJk;
+  late TextEditingController cProdi;
 
   FirebaseFirestore firestore = FirebaseFirestore.instance;
 
-  void addProduct(String nama, String npm, String alamat, String programStudi,
-      String jk) async {
-    CollectionReference mahasiswaCollection = firestore.collection("mahasiswa");
+  void addProduct(
+      String fakultas, String nama, String npm, String prodi) async {
+    CollectionReference mahasiswaCollection =
+        firestore.collection("mahasiswa_21312128");
 
     try {
       await mahasiswaCollection.add({
-        "nama": nama,
-        "npm": npm,
-        "alamat": alamat,
-        "programstudi": programStudi,
-        "jk": jk,
+        "fakultas_21312128": fakultas,
+        "nama_21312128": nama,
+        "npm_21312128": npm,
+        "prodi_21312128": prodi,
       });
       Get.defaultDialog(
         title: "Berhasil",
         middleText: "Berhasil menyimpan data mahasiswa",
         onConfirm: () {
+          cFakultas.clear();
           cNama.clear();
           cNpm.clear();
-          cAlamat.clear();
-          cProgramStudi.clear();
-          cJk.clear();
+          cProdi.clear();
           Get.back();
         },
       );
@@ -43,21 +41,19 @@ class AddProductController extends GetxController {
 
   @override
   void onInit() {
+    cFakultas = TextEditingController();
     cNama = TextEditingController();
     cNpm = TextEditingController();
-    cAlamat = TextEditingController();
-    cProgramStudi = TextEditingController();
-    cJk = TextEditingController();
+    cProdi = TextEditingController();
     super.onInit();
   }
 
   @override
   void onClose() {
+    cFakultas.dispose();
     cNama.dispose();
     cNpm.dispose();
-    cAlamat.dispose();
-    cProgramStudi.dispose();
-    cJk.dispose();
+    cProdi.dispose();
     super.onClose();
   }
 }

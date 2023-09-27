@@ -11,13 +11,13 @@ class HomeController extends GetxController {
   }
 
   Stream<QuerySnapshot<Object?>> streamData() {
-    CollectionReference products = firrestore.collection('mahasiswa');
+    CollectionReference products = firrestore.collection('mahasiswa_21312128');
 
     return products.snapshots();
   }
 
   void deleteProduct(String id) {
-    DocumentReference docref = firrestore.collection("mahasiswa").doc(id);
+    DocumentReference docref = firrestore.collection("mahasiswa_21312128").doc(id);
 
     try {
       Get.defaultDialog(

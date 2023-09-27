@@ -1,8 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:projek_get/app/controllers/auth_controller.dart';
-import 'package:projek_get/app/routes/app_pages.dart';
+import 'package:uts_21312128/app/controllers/auth_controller.dart';
+import 'package:uts_21312128/app/routes/app_pages.dart';
 
 import '../controllers/home_controller.dart';
 
